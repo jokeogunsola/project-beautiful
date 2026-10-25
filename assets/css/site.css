@@ -563,3 +563,5 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--indigo);
 .proof-fig.proof-word{white-space:normal;font-size:clamp(40px,4.6vw,72px);line-height:1}
 .ledger dt.ledger-word{white-space:normal;font-size:clamp(28px,3vw,42px)}
 @media (max-width:760px){.proof-four li:nth-child(4){border-left:0;padding-left:0}}
+
+.footer-email{color:var(--white);font-weight:600;text-decoration:underline;text-decoration-color:var(--persimmon,#E46B3C);text-underline-offset:4px;display:inline-flex;align-items:center;min-height:44px}
