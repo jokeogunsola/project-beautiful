@@ -594,3 +594,13 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--indigo);
 .next-steps{margin:0;padding:0;list-style:none;counter-reset:n}
 .next-steps li{counter-increment:n;display:grid;grid-template-columns:32px minmax(0,1fr);gap:4px;padding:10px 0;border-bottom:1px solid rgba(197,205,232,.2);color:#E6E9F5;font-size:17px;max-width:44ch}
 .next-steps li::before{content:"0" counter(n);font:700 15px/1.6 var(--serif);color:var(--resist)}
+
+/* Advisory hero: "Where to start" panel */
+.advisory-hero{align-items:start}
+.advisory-hero > :last-child{margin-top:clamp(0px,9vw,150px)}
+.nowrap{white-space:nowrap}
+.start-panel{position:relative;background:var(--resist-tint);padding:clamp(28px,3vw,44px);padding-top:calc(clamp(28px,3vw,44px) + 10px)}
+.start-panel::before{content:"";position:absolute;left:0;top:0;width:64%;height:10px;background:var(--persimmon,#E46B3C);clip-path:polygon(0 0,100% 0,calc(100% - 10px * var(--slope)) 100%,0 100%)}
+.start-panel .eyebrow{margin-bottom:12px}
+.start-panel h2{font-size:clamp(28px,2.6vw,38px);letter-spacing:-0.02em;margin:0 0 14px}
+.start-panel p{font-size:17px;color:#2B3046;margin:0 0 22px}
