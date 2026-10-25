@@ -1,0 +1,6 @@
+# Ajoke Tella: search engines and AI assistants are welcome to read and cite this site.
+User-agent: *
+Allow: /
+Disallow: /concepts/
+
+Sitemap: https://ajoketella.com/sitemap.xml

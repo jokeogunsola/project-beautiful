@@ -1,0 +1,42 @@
+/* Brand colour: Adire indigo and persimmon. Agreed and locked, October 2026.
+   Loaded after site.css, which holds the indigo base; this file adds the persimmon accent.
+   Rules from the route: persimmon on white is 3.25:1 and persimmon on indigo is 4.48:1, so persimmon is used for
+   graphics (bars, markers, underlines, buttons), never for small text. Text on persimmon is deep indigo #151A42 (5.14:1). */
+:root{--persimmon:#E46B3C;--ink-deep:#151A42}
+
+/* The breakout bar, the brand's one repeating device, now runs in persimmon on every ground */
+.breakout,.dark .breakout,.hook-break,.door-link-bar,.read-bar{background:var(--persimmon)}
+.strike::after{background:var(--persimmon)}
+
+/* Markers and small bars */
+.hook-place .sep,
+.steps li::before,
+.js .method .steps li.on::before,
+.card::before,
+.panel-offers li::before,
+.bar-list li::before,
+.dark .invited .bar-list li::before,
+.invited .bar-list li::before,
+.timeline li::before,
+.offer.match::before,
+.subscribe::before,
+.c-ticker-track span::after{background:var(--persimmon)}
+@media (prefers-reduced-motion:reduce){.js .method .steps li::before{background:var(--persimmon)}}
+
+/* Underlines: indigo text, persimmon line */
+.text-link{background-image:linear-gradient(var(--persimmon),var(--persimmon))}
+.primary-nav a::after{background:var(--persimmon)}
+
+/* Buttons: indigo leads on white; persimmon is the hover and the button on dark grounds */
+.btn-primary:hover,.enquiry .btn-primary:hover{background:var(--persimmon);color:var(--ink-deep)}
+.dark .btn-primary,.btn-light{background:var(--persimmon);color:var(--ink-deep)}
+.dark .btn-primary:hover,.btn-light:hover{background:var(--white);color:var(--ink-deep)}
+.header-cta[aria-current="page"]{background:var(--indigo)}
+.chip input:checked+span{border-color:var(--indigo)}
+
+/* The pipeline: deals that close turn persimmon as they leave */
+.pipe .deal.won{fill:var(--persimmon)}
+
+/* Selection */
+::selection{background:var(--persimmon);color:var(--ink-deep)}
+.dark ::selection{background:var(--persimmon);color:var(--ink-deep)}
