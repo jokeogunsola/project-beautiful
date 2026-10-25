@@ -146,8 +146,8 @@
   document.querySelectorAll('[data-intake]').forEach(function (link) {
     link.addEventListener('click', function () {
       var value = link.getAttribute('data-intake');
-      var radio = form.querySelector('input[name="intake"][value="' + value.replace(/"/g, '\\"') + '"]');
-      if (radio) { radio.checked = true; clearError('intake'); }
+      var intakeSelect = document.getElementById('f-intake');
+      if ([].some.call(intakeSelect.options, function (o) { return o.value === value; })) { intakeSelect.value = value; clearError('intake'); }
       var offer = link.getAttribute('data-offer') || '';
       var door = link.getAttribute('data-door-cta') || '';
       offerField.value = offer || (door ? 'Door: ' + door : '');
@@ -173,19 +173,19 @@
   function setError(key, msg) {
     var err = document.getElementById('e-' + key);
     err.textContent = msg;
-    var target = key === 'intake' ? form.querySelector('.chips') : document.getElementById('f-' + key);
+    var target = document.getElementById('f-' + key);
     target.setAttribute('aria-invalid', 'true');
   }
   function clearError(key) {
     var err = document.getElementById('e-' + key);
     if (err) err.textContent = '';
-    var target = key === 'intake' ? form.querySelector('.chips') : document.getElementById('f-' + key);
+    var target = document.getElementById('f-' + key);
     if (target) target.removeAttribute('aria-invalid');
   }
   ['name', 'email', 'company'].forEach(function (k) {
     document.getElementById('f-' + k).addEventListener('input', function () { clearError(k); });
   });
-  form.querySelectorAll('input[name="intake"]').forEach(function (r) { r.addEventListener('change', function () { clearError('intake'); }); });
+  document.getElementById('f-intake').addEventListener('change', function () { clearError('intake'); });
 
   function validate() {
     var ok = true, firstBad = null;
@@ -194,7 +194,8 @@
     if (!name.value.trim()) { setError('name', messages.name); ok = false; firstBad = firstBad || name; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())) { setError('email', messages.email); ok = false; firstBad = firstBad || email; }
     if (!company.value.trim()) { setError('company', messages.company); ok = false; firstBad = firstBad || company; }
-    if (!form.querySelector('input[name="intake"]:checked')) { setError('intake', messages.intake); ok = false; firstBad = firstBad || form.querySelector('input[name="intake"]'); }
+    var intake = document.getElementById('f-intake');
+    if (!intake.value) { setError('intake', messages.intake); ok = false; firstBad = firstBad || intake; }
     if (firstBad) firstBad.focus();
     return ok;
   }

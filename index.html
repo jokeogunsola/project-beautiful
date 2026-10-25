@@ -413,28 +413,31 @@
             <p class="error" id="e-email"></p>
           </div>
         </div>
-        <div class="field">
-          <label for="f-company">Company</label>
-          <input id="f-company" name="company" type="text" autocomplete="organization" required aria-describedby="e-company">
-          <p class="error" id="e-company"></p>
-        </div>
-        <fieldset class="field chips" aria-describedby="e-intake">
-          <legend>What are you looking for?</legend>
-          <div class="chip-grid">
-            <label class="chip"><input type="radio" name="intake" value="Sales strategy or go-to-market" required><span>Sales strategy or go-to-market</span></label><label class="chip"><input type="radio" name="intake" value="Building a sales function" required><span>Building a sales function</span></label><label class="chip"><input type="radio" name="intake" value="Fixing or scaling an existing team" required><span>Fixing or scaling an existing team</span></label><label class="chip"><input type="radio" name="intake" value="Moving upmarket to enterprise clients" required><span>Moving upmarket to enterprise clients</span></label><label class="chip"><input type="radio" name="intake" value="Sales team training" required><span>Sales team training</span></label><label class="chip"><input type="radio" name="intake" value="Fractional commercial leadership" required><span>Fractional commercial leadership</span></label><label class="chip"><input type="radio" name="intake" value="The Commercial Diagnostic" required><span>The Commercial Diagnostic</span></label><label class="chip"><input type="radio" name="intake" value="Something else" required><span>Something else</span></label>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-company">Company</label>
+            <input id="f-company" name="company" type="text" autocomplete="organization" required aria-describedby="e-company">
+            <p class="error" id="e-company"></p>
           </div>
+          <div class="field">
+            <label for="f-role">Your role <span class="optional">(optional)</span></label>
+            <input id="f-role" name="role" type="text" autocomplete="organization-title">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-intake">What are you looking for?</label>
+          <select id="f-intake" name="intake" required aria-describedby="e-intake">
+            <option value="">Choose one</option>
+            <option>Sales strategy or go-to-market</option><option>Building a sales function</option><option>Fixing or scaling an existing team</option><option>Moving upmarket to enterprise clients</option><option>Sales team training</option><option>Fractional commercial leadership</option><option>The Commercial Diagnostic</option><option>Something else</option>
+          </select>
           <p class="error" id="e-intake"></p>
-        </fieldset>
+        </div>
         <div class="field">
           <label for="f-message">Tell me a little about where you are <span class="optional">(optional)</span></label>
           <textarea id="f-message" name="message" rows="3"></textarea>
         </div>
         <details class="more-detail">
           <summary>Add more detail <span class="optional">(optional)</span></summary>
-          <div class="field">
-            <label for="f-role">Role</label>
-            <input id="f-role" name="role" type="text" autocomplete="organization-title">
-          </div>
           <div class="field-row">
             <div class="field">
               <label for="f-stage">Company stage</label>
