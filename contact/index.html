@@ -154,31 +154,33 @@
         <p class="eyebrow">Contact</p>
         <h2 id="contact-title">Tell me where you are</h2>
         <p class="lede">A few lines about your business and what you need are all it takes. I read every enquiry personally.</p>
+        <p class="list-label">What happens next</p>
+        <ol class="next-steps">
+          <li>I read every enquiry personally.</li>
+          <li>If it looks like a fit, we arrange a short introductory call to understand where you are.</li>
+          <li>I follow up with a clear recommendation and, where it helps, a proposal. Many clients begin with the Commercial Diagnostic.</li>
+        </ol>
         <div class="breakout breakout-left contact-bar" aria-hidden="true"></div>
       </div>
       <form class="enquiry" id="enquiry" name="enquiry" method="POST" data-netlify="true" netlify-honeypot="website" novalidate>
         <input type="hidden" name="form-name" value="enquiry">
         <p class="prefill-note" id="prefill-note" role="status" aria-live="polite"></p>
-        <div class="field">
-          <label for="f-name">Name</label>
-          <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
-          <p class="error" id="e-name"></p>
-        </div>
-        <div class="field">
-          <label for="f-email">Work email</label>
-          <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email">
-          <p class="error" id="e-email"></p>
-        </div>
         <div class="field-row">
           <div class="field">
-            <label for="f-company">Company</label>
-            <input id="f-company" name="company" type="text" autocomplete="organization" required aria-describedby="e-company">
-            <p class="error" id="e-company"></p>
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+            <p class="error" id="e-name"></p>
           </div>
           <div class="field">
-            <label for="f-role">Role <span class="optional">(optional)</span></label>
-            <input id="f-role" name="role" type="text" autocomplete="organization-title">
+            <label for="f-email">Work email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email">
+            <p class="error" id="e-email"></p>
           </div>
+        </div>
+        <div class="field">
+          <label for="f-company">Company</label>
+          <input id="f-company" name="company" type="text" autocomplete="organization" required aria-describedby="e-company">
+          <p class="error" id="e-company"></p>
         </div>
         <fieldset class="field chips" aria-describedby="e-intake">
           <legend>What are you looking for?</legend>
@@ -187,34 +189,41 @@
           </div>
           <p class="error" id="e-intake"></p>
         </fieldset>
-        <div class="field-row">
-          <div class="field">
-            <label for="f-stage">Company stage <span class="optional">(optional)</span></label>
-            <select id="f-stage" name="stage">
-              <option value="">Choose one</option>
-              <option>Pre-seed or seed</option>
-              <option>Series A or B</option>
-              <option>Established SME</option>
-              <option>Large or enterprise company</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="f-source">How did you hear about me? <span class="optional">(optional)</span></label>
-            <select id="f-source" name="source">
-              <option value="">Choose one</option>
-              <option>LinkedIn</option>
-              <option>Instagram</option>
-              <option>Referral</option>
-              <option>Search</option>
-              <option>Event or talk</option>
-              <option>Other</option>
-            </select>
-          </div>
-        </div>
         <div class="field">
           <label for="f-message">Tell me a little about where you are <span class="optional">(optional)</span></label>
-          <textarea id="f-message" name="message" rows="4"></textarea>
+          <textarea id="f-message" name="message" rows="3"></textarea>
         </div>
+        <details class="more-detail">
+          <summary>Add more detail <span class="optional">(optional)</span></summary>
+          <div class="field">
+            <label for="f-role">Role</label>
+            <input id="f-role" name="role" type="text" autocomplete="organization-title">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-stage">Company stage</label>
+              <select id="f-stage" name="stage">
+                <option value="">Choose one</option>
+                <option>Pre-seed or seed</option>
+                <option>Series A or B</option>
+                <option>Established SME</option>
+                <option>Large or enterprise company</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-source">How did you hear about me?</label>
+              <select id="f-source" name="source">
+                <option value="">Choose one</option>
+                <option>LinkedIn</option>
+                <option>Instagram</option>
+                <option>Referral</option>
+                <option>Search</option>
+                <option>Event or talk</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+        </details>
         <input type="hidden" name="offer" id="f-offer">
         <div class="hp" aria-hidden="true">
           <label for="f-website">Leave this empty</label>

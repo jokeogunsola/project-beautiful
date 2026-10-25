@@ -569,3 +569,28 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--indigo);
 /* Copyright: bottom-left corner, under the brand block, across the full footer width */
 .footer-grid .legal{grid-column:1/-1;justify-self:start;margin-top:8px;padding-top:20px;border-top:1px solid rgba(197,205,232,.18);width:100%}
 .subscribe-intro a{color:var(--white);font-weight:600;text-decoration:underline;text-decoration-color:var(--persimmon,#E46B3C);text-underline-offset:3px}
+
+/* Hero: the call to action sits in the first view on laptop screens */
+.hook{padding-top:clamp(20px,2.4vw,40px)}
+.hook-place{margin-bottom:clamp(18px,2vw,32px)}
+.hook-lead{font-size:clamp(22px,2.2vw,32px)}
+.hook h1{font-size:clamp(40px,6.6vw,100px)}
+.hook-top{grid-template-columns:minmax(0,1fr) minmax(190px,240px)}
+.hook-break{margin-top:clamp(20px,2vw,30px)}
+.hook-grid{margin-top:clamp(18px,2vw,28px)}
+.hook-answer{margin-bottom:14px}
+.hook-rest .hero-actions{margin:0 0 22px}
+.hook-portrait figcaption{flex-direction:column;gap:2px}
+
+/* Lighter enquiry form: optional fields tucked away */
+.more-detail{margin:0 0 20px;border-top:1px solid var(--line);padding-top:4px}
+.more-detail summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:10px;min-height:44px;font-weight:600;color:var(--indigo)}
+.more-detail summary::-webkit-details-marker{display:none}
+.more-detail summary::before{content:"";width:12px;height:12px;background:linear-gradient(var(--indigo),var(--indigo)) center/12px 2px no-repeat,linear-gradient(var(--indigo),var(--indigo)) center/2px 12px no-repeat;transition:transform .3s var(--ease)}
+.more-detail[open] summary::before{transform:rotate(45deg)}
+.more-detail summary:focus-visible{outline:3px solid var(--indigo);outline-offset:3px}
+.more-detail[open] summary{margin-bottom:12px}
+/* What happens next */
+.next-steps{margin:0;padding:0;list-style:none;counter-reset:n}
+.next-steps li{counter-increment:n;display:grid;grid-template-columns:32px minmax(0,1fr);gap:4px;padding:10px 0;border-bottom:1px solid rgba(197,205,232,.2);color:#E6E9F5;font-size:17px;max-width:44ch}
+.next-steps li::before{content:"0" counter(n);font:700 15px/1.6 var(--serif);color:var(--resist)}
