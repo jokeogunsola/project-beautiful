@@ -298,7 +298,7 @@
       sendForm(data).then(function () {
         sub.reset();
         st.className = 'form-status ok';
-        st.textContent = 'Thank you. You are on the list for new insights.';
+        st.textContent = 'Thank you. You are on the list for new insights. To unsubscribe at any time, email ajoke@ajoketella.com with the subject "Unsubscribe".';
         track('Subscribed');
       }).catch(function () {
         st.className = 'form-status fail';
