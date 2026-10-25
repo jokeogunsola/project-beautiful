@@ -83,59 +83,37 @@
     ['approach', 'offers', 'about', 'contact'].forEach(function (id) { var s = document.getElementById(id); if (s) sectionObs.observe(s); });
   }
 
-  /* Door-picker: tabs with arrow-key support; the bar travels from the chosen door to its panel */
-  var tabs = Array.prototype.slice.call(document.querySelectorAll('.door-tab'));
-  var bar = document.querySelector('.door-link-bar');
-  var picker = document.querySelector('.door-picker');
+  /* Doors: all three situations sit in the page; the guide on the left lights up whichever one is in view */
+  var steps = Array.prototype.slice.call(document.querySelectorAll('.door-step'));
+  var doorCards = Array.prototype.slice.call(document.querySelectorAll('.door-card'));
   var offers = Array.prototype.slice.call(document.querySelectorAll('.offer'));
-  var chosenDoor = null;
 
-  function placeBar(tab) {
-    if (!bar) return;
-    var top = tab.offsetTop + tab.offsetHeight / 2;
-    bar.style.setProperty('--bar-top', top + 'px');
-  }
-  function selectDoor(tab, opts) {
-    opts = opts || {};
-    tabs.forEach(function (t) {
-      var on = t === tab;
-      t.setAttribute('aria-selected', String(on));
-      t.tabIndex = on ? 0 : -1;
-      var panel = document.getElementById(t.getAttribute('aria-controls'));
-      panel.hidden = !on;
-      if (on && opts.animate && !reduceMotion) {
-        panel.classList.remove('enter'); void panel.offsetWidth; panel.classList.add('enter');
-      }
+  function markDoor(key) {
+    steps.forEach(function (s) {
+      if (s.getAttribute('data-door') === key) s.setAttribute('aria-current', 'step');
+      else s.removeAttribute('aria-current');
     });
-    placeBar(tab);
-    if (opts.animate && bar && !reduceMotion) { bar.classList.remove('pulse'); void bar.offsetWidth; bar.classList.add('pulse'); }
-    if (opts.user) {
-      // On narrow screens the panel sits below all three doors: bring it into view
-      if (window.innerWidth <= 1080) {
-        var p = document.getElementById(tab.getAttribute('aria-controls'));
-        var r = p.getBoundingClientRect();
-        if (r.top > window.innerHeight * 0.6) p.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-      }
-      chosenDoor = tab.getAttribute('data-door');
-      offers.forEach(function (o) { o.classList.toggle('match', o.getAttribute('data-doors').split(' ').indexOf(chosenDoor) > -1); });
-      track('Door selected', { door: tab.querySelector('.door-num').textContent.replace(/^\d+\s*\W\s*/, '') });
-    }
+    doorCards.forEach(function (c) { c.classList.toggle('current', c.getAttribute('data-door') === key); });
   }
-  tabs.forEach(function (tab, i) {
-    tab.addEventListener('click', function () { selectDoor(tab, { animate: true, user: true }); });
-    tab.addEventListener('keydown', function (e) {
-      var next = null;
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
-      if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
-      if (e.key === 'Home') next = tabs[0];
-      if (e.key === 'End') next = tabs[tabs.length - 1];
-      if (next) { e.preventDefault(); next.focus(); selectDoor(next, { animate: true, user: true }); }
+  function chooseDoor(key, label) {
+    offers.forEach(function (o) { o.classList.toggle('match', o.getAttribute('data-doors').split(' ').indexOf(key) > -1); });
+    track('Door selected', { door: label });
+  }
+  steps.forEach(function (step) {
+    step.addEventListener('click', function () {
+      markDoor(step.getAttribute('data-door'));
+      chooseDoor(step.getAttribute('data-door'), step.querySelector('.door-num').textContent.replace(/^\d+\s*\W\s*/, ''));
     });
   });
-  if (tabs.length) {
-    selectDoor(tabs[0]);
-    window.addEventListener('resize', function () { placeBar(tabs.filter(function (t) { return t.getAttribute('aria-selected') === 'true'; })[0]); });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { placeBar(tabs[0]); });
+  if (doorCards.length) {
+    markDoor(doorCards[0].getAttribute('data-door'));
+    if ('IntersectionObserver' in window) {
+      // A thin band across the middle of the screen: whichever situation crosses it is the current one
+      var doorObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) markDoor(en.target.getAttribute('data-door')); });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      doorCards.forEach(function (c) { doorObs.observe(c); });
+    }
   }
 
   /* Pre-fill the enquiry form from "This is us" and "Ask about this" */
@@ -310,7 +288,7 @@
 
   /* Reveal sections and breakout bars as they arrive */
   if ('IntersectionObserver' in window && !reduceMotion) {
-    var targets = document.querySelectorAll('.section-head, .door-picker, .diag-grid, .offer, .steps li, .ledger-row, .about-grid > *, .notes-grid > *, .contact-grid > *, .diag-bar, .contact-bar, .proof-grid li, .card, .topics li, .note-list li, .faq, .invited > *, .timeline li, .speak-band-grid > *, .cities > *');
+    var targets = document.querySelectorAll('.section-head, .door-card, .diag-grid, .offer, .steps li, .ledger-row, .about-grid > *, .notes-grid > *, .contact-grid > *, .diag-bar, .contact-bar, .proof-grid li, .card, .topics li, .note-list li, .faq, .invited > *, .timeline li, .speak-band-grid > *, .cities > *');
     targets.forEach(function (t) { t.classList.add('reveal'); });
     var revealObs = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {

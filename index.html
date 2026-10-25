@@ -197,51 +197,48 @@
         <p class="section-intro">The businesses I work with sell a considered, high-value product or service, where trust, multiple stakeholders and a disciplined process determine the outcome. Choose the situation that sounds most like yours.</p>
       </div>
       <div class="door-picker">
-        <div class="door-tabs" role="tablist" aria-label="Choose your situation">
-          <button class="door-tab" role="tab" id="tab-build" aria-controls="panel-build" aria-selected="true" data-door="build">
-            <span class="door-num">01 &middot; Build</span>
-            <span class="door-quote">&ldquo;We have early traction, but no repeatable sales motion.&rdquo;</span>
-          </button>
-          <button class="door-tab" role="tab" id="tab-fix" aria-controls="panel-fix" aria-selected="false" tabindex="-1" data-door="fix">
-            <span class="door-num">02 &middot; Fix and Scale</span>
-            <span class="door-quote">&ldquo;Our sales team is underperforming, and the pipeline shows it.&rdquo;</span>
-          </button>
-          <button class="door-tab" role="tab" id="tab-up" aria-controls="panel-up" aria-selected="false" tabindex="-1" data-door="up">
-            <span class="door-num">03 &middot; Move Upmarket</span>
-            <span class="door-quote">&ldquo;We want to win multi-million enterprise contracts, but are not yet sure how.&rdquo;</span>
-          </button>
-        </div>
-        <div class="door-link" aria-hidden="true"><span class="door-link-bar"></span></div>
-        <div class="door-panels">
-          <div class="door-panel" role="tabpanel" id="panel-build" aria-labelledby="tab-build" tabindex="0">
-            <p class="panel-title">Build</p>
+        <nav class="door-guide" aria-label="The three situations">
+          <ol>
+            <li><a class="door-step" href="#panel-build" data-door="build"><span class="door-num">01 &middot; Build</span><span class="door-quote">&ldquo;We have early traction, but no repeatable sales motion.&rdquo;</span></a></li>
+            <li><a class="door-step" href="#panel-fix" data-door="fix"><span class="door-num">02 &middot; Fix and Scale</span><span class="door-quote">&ldquo;Our sales team is underperforming, and the pipeline shows it.&rdquo;</span></a></li>
+            <li><a class="door-step" href="#panel-up" data-door="up"><span class="door-num">03 &middot; Move Upmarket</span><span class="door-quote">&ldquo;We want to win multi-million enterprise contracts, but are not yet sure how.&rdquo;</span></a></li>
+          </ol>
+        </nav>
+        <div class="door-stack">
+          <article class="door-panel door-card" id="panel-build" data-door="build" aria-labelledby="title-build">
+            <p class="door-num">01</p>
+            <h3 class="panel-title" id="title-build">Build</h3>
+            <p class="panel-quote">&ldquo;We have early traction, but no repeatable sales motion.&rdquo;</p>
             <p>You have early traction at seed or Series A, but the founder is still closing every deal. Revenue rests on one person, and there is no repeatable sales motion: no proven process your team can follow to win clients without you.</p>
             <p class="panel-label">Typically begins with</p>
             <ul class="panel-offers">
               <li>Sales Strategy and Go-To-Market</li><li>Sales Function Build</li><li>Founder-Led Sales Transition</li><li>Sales Hiring and Team Design</li>
             </ul>
             <a class="btn btn-primary" href="#contact" data-intake="Building a sales function" data-door-cta="Build">This is us</a>
-          </div>
-          <div class="door-panel" role="tabpanel" id="panel-fix" aria-labelledby="tab-fix" tabindex="0" hidden>
-            <p class="panel-title">Fix and Scale</p>
+          </article>
+          <article class="door-panel door-card" id="panel-fix" data-door="fix" aria-labelledby="title-fix">
+            <p class="door-num">02</p>
+            <h3 class="panel-title" id="title-fix">Fix and Scale</h3>
+            <p class="panel-quote">&ldquo;Our sales team is underperforming, and the pipeline shows it.&rdquo;</p>
             <p>You are an established business or SME with a sales team in place, yet results are inconsistent: targets are missed, there are too few qualified opportunities in the pipeline, win rates are slipping or the forecast cannot be trusted.</p>
             <p class="panel-label">Typically begins with</p>
             <ul class="panel-offers">
               <li>Sales Team Training and Coaching</li><li>Whitespace and Account Expansion</li><li>Sales Hiring and Team Design</li><li>Fractional Commercial Leader</li>
             </ul>
             <a class="btn btn-primary" href="#contact" data-intake="Fixing or scaling an existing team" data-door-cta="Fix and Scale">This is us</a>
-          </div>
-          <div class="door-panel" role="tabpanel" id="panel-up" aria-labelledby="tab-up" tabindex="0" hidden>
-            <p class="panel-title">Move Upmarket</p>
+          </article>
+          <article class="door-panel door-card" id="panel-up" data-door="up" aria-labelledby="title-up">
+            <p class="door-num">03</p>
+            <h3 class="panel-title" id="title-up">Move Upmarket</h3>
+            <p class="panel-quote">&ldquo;We want to win multi-million enterprise contracts, but are not yet sure how.&rdquo;</p>
             <p>Your sales function performs, but enterprise is a different proposition: larger contract values, longer sales cycles, formal procurement and buying committees rather than single decision makers.</p>
             <p class="panel-label">Typically begins with</p>
             <ul class="panel-offers">
               <li>Enterprise Sales Capability Programme</li><li>Enterprise Deal and RFP Strategy</li><li>Fractional Commercial Leader</li>
             </ul>
             <a class="btn btn-primary" href="#contact" data-intake="Moving upmarket to enterprise clients" data-door-cta="Move Upmarket">This is us</a>
-          </div>
+          </article>
         </div>
-      </div>
 
       <p class="doors-foot">Not sure which applies? <a class="text-link" href="#diagnostic">Most clients begin with a Commercial Diagnostic.</a></p>
     </div>
