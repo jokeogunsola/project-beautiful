@@ -565,3 +565,6 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--indigo);
 @media (max-width:760px){.proof-four li:nth-child(4){border-left:0;padding-left:0}}
 
 .footer-email{color:var(--white);font-weight:600;text-decoration:underline;text-decoration-color:var(--persimmon,#E46B3C);text-underline-offset:4px;display:inline-flex;align-items:center;min-height:44px}
+
+/* Copyright: bottom-left corner, under the brand block, across the full footer width */
+.footer-grid .legal{grid-column:1/-1;justify-self:start;margin-top:8px;padding-top:20px;border-top:1px solid rgba(197,205,232,.18);width:100%}
