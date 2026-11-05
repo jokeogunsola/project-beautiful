@@ -39,6 +39,17 @@
     setTimeout(release, 2700);
   } else if (hook) { hook.classList.add('go'); }
 
+  /* Home: the header sits on the indigo hero until the page is scrolled */
+  var head = document.querySelector('.home-v3 .site-header');
+  if (head) {
+    var heroEl = document.querySelector('.v4-hero');
+    var setHead = function () {
+      head.classList.toggle('scrolled', scrollY > (heroEl ? heroEl.offsetHeight - 80 : innerHeight * 0.6));
+      head.classList.toggle('moving', scrollY > 8);
+    };
+    setHead(); window.addEventListener('scroll', setHead, { passive: true });
+  }
+
   /* Reading bar under the header */
   var bar = document.querySelector('.read-bar');
   var ticking = false;
