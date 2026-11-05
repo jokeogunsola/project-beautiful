@@ -20,7 +20,23 @@
   /* The hook: once the headline has risen, the three dependencies are struck out and the bar breaks out */
   var hook = document.querySelector('.hook');
   if (hook && !reduce) {
+    // Hold the headline in the middle of the screen while it is struck out, then settle it to the top.
+    // Any scroll, tap or key press releases it at once, so nobody waits.
+    var type = hook.querySelector('.hook-type');
+    var held = false;
+    if (type && scrollY < 40) {
+      var r = type.getBoundingClientRect();
+      var shift = Math.max(0, Math.round(innerHeight / 2 - (r.top + r.height / 2)));
+      if (shift > 24) { hook.style.setProperty('--hold-y', shift + 'px'); hook.classList.add('hold'); held = true; }
+    }
+    var release = function () {
+      if (!held) return; held = false;
+      hook.classList.remove('hold');
+      ['scroll', 'wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(function (e) { removeEventListener(e, release); });
+    };
+    if (held) ['scroll', 'wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(function (e) { addEventListener(e, release, { passive: true }); });
     setTimeout(function () { hook.classList.add('go'); }, 900);
+    setTimeout(release, 2700);
   } else if (hook) { hook.classList.add('go'); }
 
   /* Reading bar under the header */
