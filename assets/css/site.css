@@ -1063,3 +1063,35 @@ a.v3-card:last-child:hover{transform:rotate(2deg) translateY(-6px)}
   .page-label{margin-left:-4px;padding-left:10px;font-size:11px;letter-spacing:.1em}
   .brand-logo{height:26px}
 }
+
+/* =====================================================================================
+   Preview, v7: in place of the photo, a structure of slanted bars cut at the monogram's
+   65 degree angle. They fall and stack one at a time, then breathe: revenue, built to last.
+   ===================================================================================== */
+.v7-geo{position:absolute;left:50%;bottom:0;translate:-50% 0;width:min(44vw,640px);height:min(76vh,700px);z-index:0;pointer-events:none}
+.v7-geo i{position:absolute;left:var(--l);bottom:var(--b);width:var(--w);height:7.4%;clip-path:polygon(14% 0,100% 0,86% 100%,0 100%);background:var(--mid)}
+.v7-geo i.g-resist{background:var(--resist)}
+.v7-geo i.g-white{background:var(--white)}
+.v7-geo i.g-hot{background:var(--persimmon,#E46B3C)}
+.v7-geo i.g-mid{background:#3A4683}
+.v7-geo::after{content:"";position:absolute;left:10%;right:10%;bottom:-2%;height:30%;background:radial-gradient(closest-side,rgba(91,102,153,.45),transparent);filter:blur(20px);z-index:-1}
+@media (prefers-reduced-motion:no-preference){
+  .v7-geo i{animation:v7fall .9s cubic-bezier(.34,1.35,.64,1) calc(.3s + var(--i) * 85ms) both,v7breathe 5.5s ease-in-out calc(2.6s + var(--i) * 140ms) infinite alternate}
+  @keyframes v7fall{from{opacity:0;transform:translateY(-120vh) rotate(-4deg)}to{opacity:1;transform:none}}
+  @keyframes v7breathe{from{transform:none}to{transform:translateY(-6px)}}
+}
+/* Meet Ajoke: her photo, natural colour, just below the hero */
+.v7-meet{padding:clamp(80px,9vw,140px) 0;background:var(--white)}
+.v7-meet .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:center}
+.v7-meet figure{margin:0;border-radius:28px;overflow:hidden;background:var(--resist-tint);aspect-ratio:4/5}
+.v7-meet figure img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+.v7-meet .v3-h2{max-width:18ch}
+.v7-meet .pill-hot{margin-top:8px}
+@media (max-width:900px){
+  .v7-geo{position:relative;left:auto;bottom:auto;translate:none;grid-row:2;width:88vw;height:340px;justify-self:center;margin-top:-10px}
+  .v7-meet .wrap{grid-template-columns:minmax(0,1fr)}
+  .v7-meet figure{max-width:420px}
+}
+.v7-geo{bottom:clamp(150px,20vh,190px);width:min(36vw,520px);height:min(52vh,470px)}
+.v7-geo i{height:10%}
+@media (max-width:900px){.v7-geo{bottom:auto;width:84vw;height:300px}}
