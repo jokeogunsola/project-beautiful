@@ -1037,3 +1037,29 @@ a.v3-card:last-child:hover{transform:rotate(2deg) translateY(-6px)}
   .v6-base{flex-direction:column}
   .v6-base p{line-height:1.9}
 }
+
+/* Phones: a compact "Let's talk" in the header, so starting a conversation is always one tap away */
+.cta-short{display:none}
+@media (max-width:1080px){
+  .header-cta{display:inline-flex;margin-left:auto;min-height:40px;padding:0 16px;border-radius:999px;font-size:14px;background:var(--persimmon,#E46B3C);color:#151A42}
+  .header-cta .cta-long{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .header-cta .cta-short{display:inline}
+  .menu-toggle{margin-left:8px}
+  .home-v3 .site-header:not(.scrolled) .header-cta{background:var(--persimmon,#E46B3C);border:0;color:#151A42}
+}
+/* Phone hero order: who she is, what she does, which situation fits, then the action */
+@media (max-width:900px){
+  .v4-side{grid-row:4;margin-top:24px}
+  .v4-cities{display:none}
+  .v4-doors{grid-row:5;margin-top:28px}
+  .v4-copy{grid-row:6;margin-top:24px}
+  .v4-blocks li{font-size:16px;padding:10px 18px 10px 20px}
+}
+@media (max-width:430px){
+  .header-inner{gap:12px}
+  .menu-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .menu-toggle{padding:0 6px;margin-left:4px}
+  .header-cta{padding:0 13px;font-size:13px}
+  .page-label{margin-left:-4px;padding-left:10px;font-size:11px;letter-spacing:.1em}
+  .brand-logo{height:26px}
+}
