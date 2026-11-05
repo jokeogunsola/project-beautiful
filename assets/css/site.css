@@ -997,3 +997,43 @@ a.v3-card:last-child:hover{transform:rotate(2deg) translateY(-6px)}
 .v5-foot-tag span:nth-child(2){font-style:italic;color:var(--resist)}
 .v5-footer .footer-logo{height:44px}
 @media (max-width:900px){.v5-dots{width:160px;gap:6px}}
+
+/* Numbers: each card lifts and its drawing comes alive under the pointer */
+.v5-stat{transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.v5-stat:hover{transform:translateY(-10px) rotate(-1deg);box-shadow:0 40px 70px -36px rgba(29,36,87,.55)}
+.v5-stat-raised:hover{transform:translateY(-38px) rotate(1deg)}
+.v5-ring{transition:transform 1.2s var(--ease)}
+.v5-stat:hover .v5-ring{transform:rotate(72deg)}
+.v5-stat:hover .v5-dots i{animation:v5pulse .9s var(--ease) calc(var(--i) * 6ms) both}
+.v5-stat:hover .v5-bricks i{animation:v5hop .6s var(--ease) calc(var(--i) * 30ms) both}
+@keyframes v5pulse{40%{transform:scale(1.35)}100%{transform:scale(1)}}
+@keyframes v5hop{40%{transform:translateY(-8px)}100%{transform:none}}
+@media (prefers-reduced-motion:reduce){.v5-stat:hover,.v5-stat-raised:hover,.v5-stat:hover .v5-ring{transform:none}.v5-stat:hover .v5-dots i,.v5-stat:hover .v5-bricks i{animation:none}}
+@media (max-width:900px){.v5-stat-raised:hover{transform:translateY(-10px) rotate(1deg)}}
+
+/* Footer v6, minimalist: one row of logo, pages and icons; one quiet line beneath */
+.v6-footer{background:#151A42;color:#AEB6D3;padding:48px 0 28px;font-size:14px}
+.v6-row{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:28px;border-bottom:1px solid rgba(197,205,232,.14)}
+.v6-brand{display:inline-flex;color:var(--white);--rule:var(--resist)}
+.v6-brand .footer-logo{height:32px;margin:0}
+.v6-nav{display:flex;flex-wrap:wrap;gap:4px 28px}
+.v6-nav a{display:inline-flex;align-items:center;min-height:44px;color:#E3E7F5;text-decoration:none;font-size:15px;font-weight:600;position:relative}
+.v6-nav a::after{content:"";position:absolute;left:0;right:0;bottom:10px;height:1px;background:var(--persimmon,#E46B3C);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.v6-nav a:hover::after,.v6-nav a:focus-visible::after{transform:scaleX(1)}
+.v6-social{display:flex;gap:8px;list-style:none;margin:0;padding:0}
+.v6-social a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;color:#E3E7F5;transition:background-color .3s var(--ease),color .3s var(--ease)}
+.v6-social a:hover{background:var(--persimmon,#E46B3C);color:#151A42}
+.v6-social a:focus-visible{outline:2px solid var(--white);outline-offset:2px}
+.v6-social svg{width:18px;height:18px;fill:currentColor}
+.v6-base{display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;padding-top:20px}
+.v6-base p{margin:0}
+.v6-base p span:not([aria-hidden]){margin-left:8px;color:var(--resist)}
+.v6-base a{color:#AEB6D3;text-decoration:none}
+.v6-base a:hover{color:var(--white);text-decoration:underline}
+@media (max-width:760px){
+  .v6-row{flex-direction:column;align-items:flex-start;gap:12px}
+  .v6-nav{gap:0 20px}
+  .v6-social{margin-left:-10px}
+  .v6-base{flex-direction:column}
+  .v6-base p{line-height:1.9}
+}
