@@ -50,6 +50,17 @@
     setHead(); window.addEventListener('scroll', setHead, { passive: true });
   }
 
+  /* Numbers: the ring, dots and blocks draw themselves when the cards come into view */
+  var statsBox = document.querySelector('.v5-stats');
+  if (statsBox) {
+    if ('IntersectionObserver' in window && !reduce) {
+      var so = new IntersectionObserver(function (en) {
+        if (en[0].isIntersecting) { statsBox.classList.add('go'); so.disconnect(); }
+      }, { rootMargin: '0px 0px -15% 0px' });
+      so.observe(statsBox);
+    } else { statsBox.classList.add('go'); }
+  }
+
   /* Reading bar under the header */
   var bar = document.querySelector('.read-bar');
   var ticking = false;

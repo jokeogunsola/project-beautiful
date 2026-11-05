@@ -910,3 +910,90 @@ a.v3-card:last-child:hover{transform:rotate(2deg) translateY(-6px)}
   .v4-doors-label{font-size:20px}
   .v4-doors .pill{min-height:46px;padding:0 16px;font-size:15px}
 }
+
+/* =====================================================================================
+   Footer v5: brand and line on the left, the pages set large in the serif on the right,
+   email and social icons in the middle, a quiet legal line at the base.
+   ===================================================================================== */
+.v5-footer{background:#151A42;color:#D9DEEE;padding:clamp(72px,8vw,112px) 0 32px}
+.v5-foot-top{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:start;padding-bottom:clamp(40px,5vw,64px);border-bottom:1px solid rgba(197,205,232,.18)}
+.v5-foot-brand .footer-logo{margin-bottom:22px}
+.v5-foot-tag{margin:0 0 10px;font:400 clamp(20px,1.7vw,24px)/1.35 var(--serif);color:var(--white);max-width:24ch}
+.v5-foot-cities{margin:0;font:600 12px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--resist)}
+.v5-foot-nav{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.v5-foot-nav a{position:relative;font:700 clamp(32px,3.4vw,52px)/1.08 var(--serif);letter-spacing:-0.03em;color:var(--white);text-decoration:none;padding-right:44px;transition:color .35s var(--ease)}
+.v5-foot-nav a::after{content:"\2192";position:absolute;right:0;top:50%;font:400 24px/1 var(--sans);color:var(--persimmon,#E46B3C);opacity:0;transform:translate(-10px,-50%);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.v5-foot-nav a:hover{color:var(--resist)}
+.v5-foot-nav a:hover::after,.v5-foot-nav a:focus-visible::after{opacity:1;transform:translate(0,-50%)}
+.v5-foot-nav a:focus-visible{outline:2px solid var(--white);outline-offset:4px}
+.v5-foot-mid{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding:32px 0;border-bottom:1px solid rgba(197,205,232,.18)}
+.v5-foot-email{font:400 clamp(20px,1.8vw,26px)/1.2 var(--serif);font-style:italic;color:var(--white);text-decoration:none;background:linear-gradient(var(--persimmon,#E46B3C),var(--persimmon,#E46B3C)) 0 100%/100% 2px no-repeat;padding-bottom:4px}
+.v5-foot-email:hover{color:var(--resist)}
+.v5-social{display:flex;gap:12px;list-style:none;margin:0;padding:0}
+.v5-social a{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1px solid rgba(197,205,232,.35);color:var(--white);transition:background-color .35s var(--ease),border-color .35s var(--ease),color .35s var(--ease),transform .35s var(--ease)}
+.v5-social a:hover{background:var(--persimmon,#E46B3C);border-color:var(--persimmon,#E46B3C);color:#151A42;transform:translateY(-2px)}
+.v5-social a:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+.v5-social svg{width:20px;height:20px;fill:currentColor}
+.v5-foot-base{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:24px;font-size:14px}
+.v5-foot-base .legal{margin:0;color:#AEB6D3;justify-self:auto}
+.v5-legal{display:flex;flex-wrap:wrap;gap:4px 24px;list-style:none;margin:0;padding:0}
+.v5-legal a{display:inline-flex;align-items:center;min-height:44px;color:#AEB6D3;text-decoration:none}
+.v5-legal a:hover{color:var(--white);text-decoration:underline}
+.v5-top{color:var(--white) !important}
+@media (max-width:760px){
+  .v5-foot-top{grid-template-columns:minmax(0,1fr);gap:36px}
+  .v5-foot-nav{align-items:flex-start}
+  .v5-foot-nav a{padding-right:0;font-size:34px}
+  .v5-foot-nav a::after{display:none}
+  .v5-foot-mid{flex-direction:column;align-items:flex-start}
+  .v5-foot-base{flex-direction:column-reverse;align-items:flex-start;gap:4px}
+}
+
+/* =====================================================================================
+   Numbers v5: three white cards on resist blue. Each figure is drawn from what it counts:
+   15 ring segments for 15 accounts, 100 dots for 100 accounts, 17 blocks for $17M.
+   ===================================================================================== */
+.v5-stats-band{background:var(--resist-tint);padding:clamp(96px,11vw,160px) 0}
+.v5-stats{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px);align-items:end}
+.v5-stat{display:flex;flex-direction:column;gap:10px;padding:clamp(24px,2.4vw,36px);border-radius:26px;background:var(--white);box-shadow:0 30px 60px -40px rgba(29,36,87,.45);border:1px solid rgba(29,36,87,.06)}
+.v5-stat-raised{background:var(--indigo);color:var(--white);transform:translateY(-28px)}
+.v5-vis{height:190px;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.v5-fig{font:700 clamp(44px,4.4vw,72px)/.95 var(--serif);letter-spacing:-0.04em;color:var(--indigo);white-space:nowrap}
+.v5-stat-raised .v5-fig{color:var(--white)}
+.v5-cap{font-size:16px;line-height:1.45;color:#2B3046;max-width:30ch}
+.v5-stat-raised .v5-cap{color:#DCE1F2}
+/* Ring */
+.v5-vis-ring{position:relative}
+.v5-ring{width:180px;height:180px}
+.v5-ring path{fill:none;stroke:var(--persimmon,#E46B3C);stroke-width:14;stroke-linecap:butt}
+.v5-ring path:nth-child(3n+2){stroke:var(--indigo)}
+.v5-ring path:nth-child(3n){stroke:var(--mid)}
+.v5-centre{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font:700 44px/1 var(--serif);color:var(--indigo);letter-spacing:-0.03em}
+.v5-centre small{font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--mid);margin-top:6px}
+/* Dots */
+.v5-dots{display:grid;grid-template-columns:repeat(10,1fr);gap:7px;width:190px}
+.v5-dots i{display:block;aspect-ratio:1;border-radius:50%;background:var(--resist)}
+.v5-dots i:nth-child(7n+3){background:var(--persimmon,#E46B3C)}
+/* Bricks */
+.v5-bricks{display:flex;flex-wrap:wrap-reverse;justify-content:center;align-content:flex-start;gap:6px;width:200px}
+.v5-bricks i{display:block;width:56px;height:24px;background:var(--indigo);clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+.v5-bricks i:nth-child(odd){background:var(--persimmon,#E46B3C)}
+.v5-bricks i:nth-child(17){background:var(--mid)}
+@media (prefers-reduced-motion:no-preference){
+  .js .v5-stats:not(.go) .v5-ring path{opacity:0}
+  .js .v5-stats:not(.go) .v5-dots i{transform:scale(0)}
+  .js .v5-stats:not(.go) .v5-bricks i{opacity:0;transform:translateY(-40px)}
+  .v5-ring path{transition:opacity .4s var(--ease) calc(var(--i) * 60ms)}
+  .v5-dots i{transition:transform .4s cubic-bezier(.34,1.56,.64,1) calc(var(--i) * 12ms)}
+  .v5-bricks i{transition:opacity .4s var(--ease) calc(var(--i) * 70ms),transform .55s cubic-bezier(.34,1.4,.64,1) calc(var(--i) * 70ms)}
+}
+@media (max-width:900px){
+  .v5-stats{grid-template-columns:minmax(0,1fr)}
+  .v5-stat-raised{transform:none}
+  .v5-vis{height:170px}
+}
+.v5-foot-tag span{display:block}
+.v5-foot-tag{margin-bottom:18px;line-height:1.3}
+.v5-foot-tag span:nth-child(2){font-style:italic;color:var(--resist)}
+.v5-footer .footer-logo{height:44px}
+@media (max-width:900px){.v5-dots{width:160px;gap:6px}}
