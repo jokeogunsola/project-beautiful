@@ -901,3 +901,12 @@ a.v3-card:last-child:hover{transform:rotate(2deg) translateY(-6px)}
   .v4-figure{width:min(46vw,660px,76vh)}
   .v4-doors{margin-top:clamp(16px,3vh,32px)}
 }
+
+/* Home hero: "Where are you today?" reads as an invitation, not a footnote */
+.v4-doors-label{font:italic 400 clamp(20px,1.7vw,26px)/1.2 var(--serif);letter-spacing:-0.005em;text-transform:none;color:var(--white);margin:0 0 6px}
+.v4-doors-label::before,.v4-doors-label::after{width:56px;height:2px}
+.v4-doors .pill{min-height:52px;padding:0 26px;font-size:16px;border-color:rgba(255,255,255,.4)}
+@media (max-width:900px){
+  .v4-doors-label{font-size:20px}
+  .v4-doors .pill{min-height:46px;padding:0 16px;font-size:15px}
+}
