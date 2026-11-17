@@ -43,7 +43,7 @@
       const data = new FormData(form);
       if (String(data.get('website') || '').trim()) return;
       submit.disabled = true;
-      status.textContent = 'Sending your enquiry…';
+      status.textContent = form.getAttribute('name') === 'insights' ? 'Subscribing…' : 'Sending your enquiry…';
       try {
         const result = await fetch(form.action, {
           method: 'POST',
@@ -51,10 +51,13 @@
           body: new URLSearchParams(data),
         });
         if (!result.ok) throw new Error('Submission failed');
-        window.umami?.track(form.getAttribute('name') === 'invitation' ? 'Invitation sent' : 'Enquiry sent');
+        const name = form.getAttribute('name');
+        window.umami?.track({ invitation: 'Invitation sent', insights: 'Subscribed' }[name] || 'Enquiry sent');
         form.reset();
         intake?.dispatchEvent(new Event('change'));
-        status.textContent = 'Thank you. Your enquiry has been sent to Ajoke.';
+        status.textContent = name === 'insights'
+          ? 'Thank you. You are on the list for new insights. To unsubscribe at any time, email ajoke@ajoketella.com with the subject "Unsubscribe".'
+          : 'Thank you. Your enquiry has been sent to Ajoke.';
       } catch {
         status.textContent = 'Your enquiry could not be sent. Please try again or email ajoke@ajoketella.com.';
       } finally {
