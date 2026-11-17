@@ -33,7 +33,8 @@
     });
   }
 
-  for (const form of document.querySelectorAll('.aa-form[data-netlify]')) {
+  // Netlify strips data-netlify when it processes forms at deploy, so match on the class
+  for (const form of document.querySelectorAll('.aa-form')) {
     const submit = form.querySelector('button[type="submit"]');
     const status = form.querySelector('[role="status"]');
     form.addEventListener('submit', async (event) => {
