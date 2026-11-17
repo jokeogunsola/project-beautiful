@@ -1,38 +1,16 @@
-@font-face {
-  font-family: 'Chivo';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/assets/redesign/792a9376fb4dec24.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Chivo';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/assets/redesign/b696534a0344fb00.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Radley';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/assets/redesign/0d9d92716c050083.ttf) format('truetype');
-}
-
 @font-face{font-family:'Source Serif 4';src:url(/assets/redesign/2a24bad466f09b88.woff2) format('woff2');font-weight:400 700;font-display:swap}
 @font-face{font-family:'Source Sans 3';src:url(/assets/redesign/587435ca9d90732b.woff2) format('woff2');font-weight:400 700;font-display:swap}
 
-  #ajoke-homepage-four-week { --ae-paper:#FFFFFF;--ae-ink:#1D2457;--ae-red:#E46B3C;background:var(--ae-paper);color:var(--ae-ink);font:400 15px/1.5 Chivo,sans-serif; }
+  #ajoke-homepage-four-week { --ae-paper:#FFFFFF;--ae-ink:#1D2457;--ae-red:#E46B3C;background:var(--ae-paper);color:var(--ae-ink);font:400 17px/1.5 "Source Sans 3",sans-serif; }
   #ajoke-homepage-four-week * { box-sizing:border-box; }
   #ajoke-homepage-four-week header { display:flex;justify-content:space-between;align-items:center;gap:16px;padding:19px clamp(17px,5%,58px); }
-  #ajoke-homepage-four-week .ae-name { display:flex;align-items:center;gap:9px;white-space:nowrap;font:400 25px/1 Radley,Georgia,serif; }
+  #ajoke-homepage-four-week .ae-name { display:flex;align-items:center;gap:9px;white-space:nowrap;font:400 25px/1 "Source Serif 4",Georgia,serif; }
   #ajoke-homepage-four-week .ae-name img { width:29px;height:29px;object-fit:contain; }
   #ajoke-homepage-four-week .ae-nav { display:flex;gap:clamp(12px,3vw,31px);font-size:12px;text-align:right; }
   #ajoke-homepage-four-week .ae-opening { display:grid;grid-template-columns:1.13fr 1fr;background:var(--ae-ink);color:var(--ae-paper); }
   #ajoke-homepage-four-week .ae-intro { align-self:center;padding:54px clamp(25px,6vw,68px) 61px; }
   #ajoke-homepage-four-week p,#ajoke-homepage-four-week h2,#ajoke-homepage-four-week figure { margin:0; }
-  #ajoke-homepage-four-week h2 { max-width:10ch;color:var(--ae-paper);font:400 clamp(52px,7.5vw,92px)/.9 Radley,Georgia,serif;letter-spacing:-.043em; }
+  #ajoke-homepage-four-week h2 { max-width:10ch;color:var(--ae-paper);font:400 clamp(52px,7.5vw,92px)/.9 "Source Serif 4",Georgia,serif;letter-spacing:-.043em; }
   #ajoke-homepage-four-week .ae-description { max-width:34ch;margin-top:24px; }
   #ajoke-homepage-four-week .ae-cta { display:inline-flex;max-width:100%;align-items:center;gap:13px;margin-top:28px;padding:11px 0 8px;border-bottom:2px solid #E46B3C;color:var(--ae-paper);font-size:13px;font-weight:500; }
   #ajoke-homepage-four-week figure { position:relative;min-height:440px;overflow:hidden; }
@@ -78,11 +56,11 @@
   #ajoke-homepage-four-week .ae-close h2 { color:#FFFFFF !important; }
   #ajoke-homepage-four-week .ae-routes { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:30px; }
   #ajoke-homepage-four-week .ae-routes > div { border-top:1px solid #C5CDE8; padding-top:16px; }
-  #ajoke-homepage-four-week .ae-routes h3 { margin:0 0 7px; font:400 26px/1.15 Radley,Georgia,serif; color:#FFFFFF !important; }
+  #ajoke-homepage-four-week .ae-routes h3 { margin:0 0 7px; font:400 26px/1.15 "Source Serif 4",Georgia,serif; color:#FFFFFF !important; }
   #ajoke-homepage-four-week .ae-routes p { max-width:40ch; color:#C5CDE8 !important; }
   @media(max-width:600px) { #ajoke-homepage-four-week .ae-chapter,#ajoke-homepage-four-week .ae-routes { grid-template-columns:1fr; } }
 
-#ajoke-homepage-four-week h1{margin:0;max-width:10ch;color:white;font:400 clamp(52px,7.5vw,92px)/.9 Radley,Georgia,serif;letter-spacing:-.043em}@media(max-width:660px){#ajoke-homepage-four-week h1{font-size:clamp(44px,11vw,65px)}}
+#ajoke-homepage-four-week h1{margin:0;max-width:10ch;color:white;font:400 clamp(52px,7.5vw,92px)/.9 "Source Serif 4",Georgia,serif;letter-spacing:-.043em}@media(max-width:660px){#ajoke-homepage-four-week h1{font-size:clamp(44px,11vw,65px)}}
 
   #ajoke-advisory-privacy-line { --ink:#1D2457;--mid:#5B6699;--resist:#C5CDE8;--spark:#E46B3C; background:#fff;color:var(--ink);font:400 17px/1.48 "Source Sans 3",Verdana,sans-serif; }
   #ajoke-advisory-privacy-line * { box-sizing:border-box; }
@@ -403,3 +381,8 @@ img,svg{display:block;max-width:100%}
    :not(.x) lifts specificity to match the page-scoped rules above, so this later rule wins. */
 :is(#ajoke-homepage-four-week,#ajoke-advisory-privacy-line,#ajoke-speaking-stage-editorial,#ajoke-about-linkedin) h1:not(.x){font:400 clamp(44px,6.2vw,88px)/.98 "Source Serif 4",Georgia,serif;letter-spacing:-.045em}
 @media(max-width:660px){:is(#ajoke-homepage-four-week,#ajoke-advisory-privacy-line,#ajoke-speaking-stage-editorial,#ajoke-about-linkedin) h1:not(.x){font-size:clamp(36px,9.6vw,52px)}}
+
+/* Section headings share one size across the new pages; the smaller form headings stay at their own shared size */
+:is(#ajoke-homepage-four-week .ae-chapter,#ajoke-homepage-four-week .ae-close,#ajoke-advisory-privacy-line .aa-work,#ajoke-advisory-privacy-line .aa-next) h2:not(.x){font:400 clamp(34px,4.2vw,56px)/1.02 "Source Serif 4",Georgia,serif;letter-spacing:-.035em}
+/* Body text: 17px on every new page */
+#ajoke-homepage-four-week{font-size:17px}
