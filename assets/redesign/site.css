@@ -398,3 +398,8 @@ img,svg{display:block;max-width:100%}
 /* Legacy anchors are retained for previously shared links. */
 .anchor-alias {display:block;scroll-margin-top:20px}
 [data-netlify] [role="status"] {scroll-margin-top:16px}
+
+/* One page-title style across Home, Advisory, Speaking & Hosting and About.
+   :not(.x) lifts specificity to match the page-scoped rules above, so this later rule wins. */
+:is(#ajoke-homepage-four-week,#ajoke-advisory-privacy-line,#ajoke-speaking-stage-editorial,#ajoke-about-linkedin) h1:not(.x){font:400 clamp(44px,6.2vw,88px)/.98 "Source Serif 4",Georgia,serif;letter-spacing:-.045em}
+@media(max-width:660px){:is(#ajoke-homepage-four-week,#ajoke-advisory-privacy-line,#ajoke-speaking-stage-editorial,#ajoke-about-linkedin) h1:not(.x){font-size:clamp(36px,9.6vw,52px)}}
