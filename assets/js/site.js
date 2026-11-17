@@ -8,9 +8,9 @@
     formEndpoint: '',
     // Fallback address shown if sending fails. Fill in when the address is live.
     contactEmail: '',
-    // Privacy-friendly analytics (Plausible: no cookies, no personal data, no banner needed).
-    // Loads only on the live domain, so testing does not count as visits.
-    analytics: { provider: 'plausible', domain: 'ajoketella.com', liveHosts: ['ajoketella.com', 'www.ajoketella.com'] }
+    // Privacy-friendly analytics (Umami: no cookies, no personal data, no banner needed).
+    // The script tag's data-domains limits counting to the live domain, so testing does not count as visits.
+    analytics: { provider: 'umami', liveHosts: ['ajoketella.com', 'www.ajoketella.com'] }
   };
   // ---------------------------------------------------------------------------------------
 
@@ -31,14 +31,10 @@
       .then(function (r) { if (!r.ok) throw new Error('Send failed'); });
   }
 
-  /* Analytics: load the script on the live site only, and record a few meaningful actions */
+  /* Analytics: record a few meaningful actions in Umami (buttons with data-umami-event are counted by Umami itself) */
   function track(name, props) {
-    if (typeof window.plausible === 'function') window.plausible(name, props ? { props: props } : undefined);
+    if (window.umami && typeof window.umami.track === 'function') window.umami.track(name, props);
   }
-  window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
-  document.querySelectorAll('[data-track]').forEach(function (el) {
-    el.addEventListener('click', function () { track(el.getAttribute('data-track')); });
-  });
 
   /* Footer year */
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });

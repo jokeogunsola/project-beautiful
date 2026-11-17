@@ -51,6 +51,7 @@
           body: new URLSearchParams(data),
         });
         if (!result.ok) throw new Error('Submission failed');
+        window.umami?.track(form.getAttribute('name') === 'invitation' ? 'Invitation sent' : 'Enquiry sent');
         form.reset();
         intake?.dispatchEvent(new Event('change'));
         status.textContent = 'Thank you. Your enquiry has been sent to Ajoke.';
